@@ -12,7 +12,7 @@
 [answer here]
 ```
 
-## My conclusion about Jonatan
+## My conclusion about Noah
 
 ```text
 [answer here]
