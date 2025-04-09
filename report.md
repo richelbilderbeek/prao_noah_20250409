@@ -1,5 +1,7 @@
 # Report
 
+Theory: A chi-squared test with the same value for each slot will yield an infinite number, due to it being exactly the same, and you cannot prove an effect in any way.
+
 I checked my theory, in which I thought a chi-squared test where each square has the same number in it, would yield a low value of independence. I thought this would be true, however I had forgotten that a high p value means a high independence with no correlation, and not a low value.
 I ran a chi-squared test with men and women, and the number of cat/dogs each group had. I put a '5' for each value, and the results of this yielded a p value of 1. Since there is obviously no correlation between gender and choice of pet.
 
@@ -13,12 +15,12 @@ chi_square_result <- chisq.test(data)
 print(chi_square_result)
 
 #Code for Table 2
- library(stats)
-> data <- matrix(c(10, 0, 0, 10), nrow = 2, byrow = TRUE)
-> colnames(data) <- c("Men", "Women")
-> rownames(data) <- c("Cats", "Dogs")
-> chi_square_result <- chisq.test(data)
-> print(chi_square_result)
+library(stats)
+data <- matrix(c(10, 0, 0, 10), nrow = 2, byrow = TRUE)
+colnames(data) <- c("Men", "Women")
+rownames(data) <- c("Cats", "Dogs")
+chi_square_result <- chisq.test(data)
+print(chi_square_result)
 ```
 Table 1
 .  |Male  |  Female
@@ -33,7 +35,7 @@ Table 2
 ---|------|--------|
 Cat|  10  |    0   |
 Dog|  0   |    10  |
->This tale returns a p value of 5.699e-05
+>This table returns a p value of 5.699e-05
 
 Tried to load data from teaching_hours.csv, but ran into issues.
 
@@ -42,6 +44,10 @@ Copied Richels code for loading the data from the analysis, however ran into a w
 Tried running chi-squared tests on the data from the analysis, code below. I don't know if any of these are the correct way to do it, but I'm doing something atleast.
 ```R
 chisq.test(x = t_hours_per_type_per_gender$female, y = t_hours_per_type_per_gender$male)
+#Result:
+#Pearson's Chi-squared test
+#data:  t_hours_per_type_per_gender$female and t_hours_per_type_per_gender$male
+#X-squared = 72, df = 64, p-value = 0.2303
 
 library(stats)
 data <- matrix(c(t_hours_per_type_per_gender$female, t_hours_per_type_per_gender$male), nrow = 9, byrow = TRUE)
@@ -49,7 +55,26 @@ colnames(data) <- c("Women", "Men")
 rownames(data) <- c(t_hours_per_type_per_gender$TypeTeaching)
 chi_square_result <- chisq.test(data)
 print(chi_square_result)
+#Result:
+#Pearson's Chi-squared test
+#data:  data
+#X-squared = 1105.9, df = 8, p-value < 2.2e-16
+#Note that the two tests get different answers. This is because I think the first one could be incomplete. It doesn't specify rows by academic status.
 ```
+.                                    |Male   |Female   |
+-------------------------------------|-------|---------|
+Other (admin)                        |  312  |   88    |
+Other (course specific)              | 80.1  |   11.4  |
+Other (mixed or unspecified teaching)|    6  |   130.  |
+course convener                      |  251. |   216.  |
+grading exams                        |  331. |   182.  |
+grading thesis                       |  202. |   238.  |
+lectures                             |  538. |   432.  |
+seminars                             | 1036. |   861.  |
+supervision                          |  561. |   609.  |
+>Table that should in theory yield the p-value 2.2e-16
+ 
+The second test, which I believe to be the correct one, yields a really low p value. This suggests there's a very low chance at independence, and theres a strong relationship between teaching hours and gender.
 ## Goal
 
 To find out if gender and academic status matters for hours spent teaching.
