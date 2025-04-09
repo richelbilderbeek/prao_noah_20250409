@@ -16,7 +16,8 @@ To find out how working life at NBIS/UPPMAX/UU is like.
 
 ## PRAO project
 
-- To be determined
+- To determine if there is a gender bias in teaching load
+  at Uppsala University
 
 ## PRAO tips from former students
 
