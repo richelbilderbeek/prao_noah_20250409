@@ -108,3 +108,59 @@ To find out if gender and academic status matters for hours spent teaching.
   teaching –formulating equitable and transparent policies
 
 
+
+
+Code
+
+#!/bin/env Rscript
+setwd("analysis_soederstroem_20250408/")
+t_persons <- readr::read_csv("teaching_person.csv")
+t_hours <- readr::read_csv("teaching_hours.csv")
+View(t_hours)
+
+t_hours_per_gender <- t_hours |> 
+  dplyr::select(GENDER, HOURS) |>
+  dplyr::group_by(GENDER) |>
+  dplyr::summarise(n_hours = sum(HOURS))
+
+t_hours_per_gender
+View(t_hours_per_gender)
+
+chisq.test(x = c(8, 2), y = c(3, 7))
+ 
+
+t_hours_per_type_per_gender <- t_hours |> 
+  dplyr::select(GENDER, TypeTeaching, HOURS) |>
+  dplyr::group_by(GENDER, TypeTeaching) |>
+  dplyr::summarise(n_hours = sum(HOURS), .groups = "drop") |> 
+  tidyr::pivot_wider(names_from = GENDER, values_from = n_hours)
+
+t_hours_per_type_per_gender$female
+t_hours_per_type_per_gender$
+
+teaching_types <- unique(t_hours$TypeTeaching)
+t_stats_per_gender_per_teaching_type <- tibble::tibble(
+  teaching_type = teaching_types,
+  p_value = NA,
+  is_different = NA
+)
+
+for (i in seq_along(teaching_types)) {
+  teaching_type <- teaching_types[i]
+  male_hours <- t_hours |> 
+    dplyr::select(GENDER, TypeTeaching, HOURS) |>
+    dplyr::filter(TypeTeaching == teaching_type & GENDER == "male") |>
+    dplyr::pull(HOURS)
+  female_hours <- t_hours |> 
+    dplyr::select(GENDER, TypeTeaching, HOURS) |>
+    dplyr::filter(TypeTeaching == teaching_type & GENDER == "female") |>
+    dplyr::pull(HOURS)
+}
+
+ggplot2::ggplot(
+  t_hours |> dplyr::select(GENDER, TypeTeaching, HOURS),
+  ggplot2::aes(x = HOURS, fill = GENDER)
+) + ggplot2::geom_histogram(position = "identity", alpha = 0.5) + 
+  ggplot2::facet_grid(TypeTeaching ~ ., ) +
+  ggplot2::theme(strip.text.y.right = ggplot2::element_text(angle = 0))
+ggplot2::ggsave(filename = "hours_per_gender_per_type.png", width = 7, height = 7)
