@@ -26,7 +26,7 @@ To find out how working life at NBIS/UPPMAX/UU is like.
 > [Emil](https://github.com/richelbilderbeek/prao_emil_20240603)
 >
 > Make sure to get a good idea of what to do before starting so that
-> you don't loose time due to missunderstaning the assignment.
+> you don't lose time due to misunderstanding the assignment.
 > [Frans](https://github.com/richelbilderbeek/prao_frans_20241114)
 
 ## Files used by continuous integration scripts

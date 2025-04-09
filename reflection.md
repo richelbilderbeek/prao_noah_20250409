@@ -19,19 +19,19 @@ By forcing oneself to think of this, one can actually learn from the past.
 [answer here]
 ```
 
-## What can be improved?
+## What could be improved?
 
 ```text
 [answer here]
 ```
 
-## What did you supervisor do well?
+## What did your supervisor do well?
 
 ```text
 [answer here]
 ```
 
-## How can you supervisor be improved?
+## How can your supervisor be improved?
 
 ```text
 [answer here]
