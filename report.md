@@ -24,7 +24,7 @@ To find out if gender and academic status matters for hours spent teaching.
 
 - [x] Install RStudio
 - [x] Do a chi-squared test in R
-- [ ] Prove understanding of chi-squared test
+- [x] Prove understanding of chi-squared test
 - [ ] Determine if tables in `[Bendfeldt & Söderström, unpublished]` are
   only descriptive or can be used to find a gendered effect.
   If a table shows a potential gendered effect, prove it is a
