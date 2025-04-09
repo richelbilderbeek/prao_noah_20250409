@@ -3,12 +3,24 @@
 I checked my theory, in which I thought a chi-squared test where each square has the same number in it, would yield a low value of independence. I thought this would be true, however I had forgotten that a high p value means a high independence with no correlation, and not a low value.
 I ran a chi-squared test with men and women, and the number of cat/dogs each group had. I put a '5' for each value, and the results of this yielded a p value of 1. Since there is obviously no correlation between gender and choice of pet.
 
-Code I used:
+``` R
+#Code for Table 1
+library(stats)
+data <- matrix(c(5, 5, 5, 5), nrow = 2, byrow = TRUE)
+colnames(data) <- c("Men", "Women")
+rownames(data) <- c("Cats", "Dogs")
+chi_square_result <- chisq.test(data)
+print(chi_square_result)
 
-```r
-x <- 3.14
+#Code for Table 2
+ library(stats)
+> data <- matrix(c(10, 0, 0, 10), nrow = 2, byrow = TRUE)
+> colnames(data) <- c("Men", "Women")
+> rownames(data) <- c("Cats", "Dogs")
+> chi_square_result <- chisq.test(data)
+> print(chi_square_result)
 ```
-
+Table 1
 .  |Male  |  Female
 ---|------|--------
 Cat|  5   |    5   
@@ -16,7 +28,7 @@ Dog|  5   |    5
 
 > This table returns a p value of 1.
     
-    
+Table 2
 .  |Male  |  Female|
 ---|------|--------|
 Cat|  10  |    0   |
@@ -24,8 +36,20 @@ Dog|  0   |    10  |
 >This tale returns a p value of 5.699e-05
 
 Tried to load data from teaching_hours.csv, but ran into issues.
-11:15 AM
+
 Copied Richels code for loading the data from the analysis, however ran into a wall when trying to run a chi-squared test on it. I could not for the life of me think out a way to do it myself, and when trying to copy Richels test, it returned the error: Error in sum(x) : invalid 'type' (character) of argument. I also added tables to previous part of report, to clarify what I was doing.
+
+Tried running chi-squared tests on the data from the analysis, code below. I don't know if any of these are the correct way to do it, but I'm doing something atleast.
+```R
+chisq.test(x = t_hours_per_type_per_gender$female, y = t_hours_per_type_per_gender$male)
+
+library(stats)
+data <- matrix(c(t_hours_per_type_per_gender$female, t_hours_per_type_per_gender$male), nrow = 9, byrow = TRUE)
+colnames(data) <- c("Women", "Men")
+rownames(data) <- c(t_hours_per_type_per_gender$TypeTeaching)
+chi_square_result <- chisq.test(data)
+print(chi_square_result)
+```
 ## Goal
 
 To find out if gender and academic status matters for hours spent teaching.
