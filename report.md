@@ -74,7 +74,9 @@ seminars                             | 1036. |   861.  |
 supervision                          |  561. |   609.  |
 >Table that should in theory yield the p-value 2.2e-16
  
-The second test, which I believe to be the correct one, yields a really low p value. This suggests there's a very low chance at independence, and theres a strong relationship between teaching hours and gender.
+Conclusion:
+
+The second test, which I believe to be the correct one, yields a really low p value. This suggests there's a very low chance at independence, and theres a strong relationship between teaching hours and gender. There is, in theory a gendered effect, and quite a significant one at that. (This could be completely false as this is the conclusion I, myself, have drawn from my limited knowledge.)
 ## Goal
 
 To find out if gender and academic status matters for hours spent teaching.
