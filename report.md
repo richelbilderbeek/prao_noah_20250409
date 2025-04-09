@@ -5,11 +5,11 @@ I ran a chi-squared test with men and women, and the number of cat/dogs each gro
 Tried to load data from teaching_hours.csv, but ran into issues.
 11:15 AM
 
-## Goal
+## Goal (written by supervisor)
 
 To find out if gender and academic status matters for hours spent teaching.
 
-## Tasks
+## Tasks (written by supervisor)
 
 - [x] Install RStudio
 - [x] Do a chi-squared test in R
@@ -18,10 +18,18 @@ To find out if gender and academic status matters for hours spent teaching.
   only descriptive or can be used to find a gendered effect.
   If a table shows a potential gendered effect, prove it is a
   significant effect
-- [ ] ...
+- [ ] At Uppsala University they know that males and females will never
+  put in *exactly* the same amount of hours. Instead, they use a 
+  rule-of-thumb of 40%-60% to say when the amounts of hours are
+  equal enough. This is a different rule than when using statistics,
+  where can get a significant effect of gender on teaching hours
+  at 49% hours by males to 51% hours by female, **if and only if**
+  the dataset is big enough. Are there examples when there is difference
+  beyond the rule-of-thumb range and the statistics? When?
+  How big should the data be for the 40%-60% rule-of-thumb to be valid?
 
 
-## References
+## References (written by supervisor)
 
 - `[Bendfeldt & Söderström, unpublished]`
   Fair division of labor? Examining access to prestigious
