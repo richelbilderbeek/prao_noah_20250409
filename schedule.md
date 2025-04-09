@@ -20,7 +20,7 @@ Start|What
 14:00|Break
 14:15|Work on project
 15:00|Break
-15:15|[Report](report.md) done
-15:30|Write down [reflection](reflection.md) and [reflection from supervisor](reflection_from_supervisor.md)
-15:45|Discuss [reflection](reflection.md)
+15:15|Work on project, finalize [report](report.md)
+15:40|write down [reflection](reflection.md) and [reflection from supervisor](reflection_from_supervisor.md)
+15:50|Discuss [reflection](reflection.md)
 16:00|Done
