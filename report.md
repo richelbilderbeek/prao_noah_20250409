@@ -10,9 +10,13 @@ Dog|  5   |    5
 
 > This table returns a p value of 1.
     
-       |Male  |  Female|
-    Cat|  10  |    0   |
-    Dog|  0   |    10  | - This tale returns a p value of 5.699e-05
+    
+.  |Male  |  Female|
+---|------|--------|
+Cat|  10  |    0   |
+Dog|  0   |    10  |
+>This tale returns a p value of 5.699e-05
+
 Tried to load data from teaching_hours.csv, but ran into issues.
 11:15 AM
 Copied Richels code for loading the data from the analysis, however ran into a wall when trying to run a chi-squared test on it. I could not for the life of me think out a way to do it myself, and when trying to copy Richels test, it returned the error: Error in sum(x) : invalid 'type' (character) of argument. I also added tables to previous part of report, to clarify what I was doing.
