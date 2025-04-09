@@ -9,9 +9,22 @@ Tried to load data from teaching_hours.csv, but ran into issues.
 
 To find out if gender and academic status matters for hours spent teaching.
 
-## Methods
+## Tasks
 
-- Install RStudio
-- Do a chi-squared test in R
+- [x] Install RStudio
+- [x] Do a chi-squared test in R
+- [ ] Prove understanding of chi-squared test
+- [ ] Determine if tables in `[Bendfeldt & Söderström, unpublished]` are
+  only descriptive or can be used to find a gendered effect.
+  If a table shows a potential gendered effect, prove it is a
+  significant effect
+- [ ] ...
+
+
+## References
+
+- `[Bendfeldt & Söderström, unpublished]`
+  Fair division of labor? Examining access to prestigious
+  teaching –formulating equitable and transparent policies
 
 
