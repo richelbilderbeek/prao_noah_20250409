@@ -110,8 +110,8 @@ To find out if gender and academic status matters for hours spent teaching.
 
 
 
-Code
-
+Code:
+```R
 #!/bin/env Rscript
 setwd("analysis_soederstroem_20250408/")
 t_persons <- readr::read_csv("teaching_person.csv")
@@ -164,3 +164,26 @@ ggplot2::ggplot(
   ggplot2::facet_grid(TypeTeaching ~ ., ) +
   ggplot2::theme(strip.text.y.right = ggplot2::element_text(angle = 0))
 ggplot2::ggsave(filename = "hours_per_gender_per_type.png", width = 7, height = 7)
+
+library(stats)
+data <- matrix(c(t_hours_per_type_per_gender$female, t_hours_per_type_per_gender$male), nrow = 9, byrow = TRUE)
+colnames(data) <- c("Women", "Men")
+rownames(data) <- c(t_hours_per_type_per_gender$TypeTeaching)
+chi_square_result <- chisq.test(data)
+print(chi_square_result)
+#Will always output a p-value of 2.2e-16
+
+chi_square_result[["observed"]]
+#Result below:
+#                                      Women      Men
+#Other (admin)                         312.400   80.100
+#Other (course specific)                 6.000  250.670
+#Other (mixed or unspecified teaching) 330.865  201.500
+#course convener                       538.330 1036.130
+#grading exams                         561.170   88.000
+#grading thesis                         11.375  130.500
+#lectures                              216.500  182.500
+#seminars                              238.250  431.500
+#supervision                           861.490  608.875 -Matches data from analysis.
+```
+Since data from the observed chi_square_result matches the data from the analysis, I believe I can say that yes, there is a significant effect here. It is a reproducable result, and entering all the code will always yield the same p value.
